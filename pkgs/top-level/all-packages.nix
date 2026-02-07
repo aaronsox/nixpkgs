@@ -11236,8 +11236,6 @@ with pkgs;
 
   pinboard-notes-backup = haskell.lib.compose.justStaticExecutables haskellPackages.pinboard-notes-backup;
 
-  pixel2svg = python311Packages.callPackage ../tools/graphics/pixel2svg { };
-
   inherit (callPackage ../applications/virtualization/singularity/packages.nix { })
     apptainer
     singularity
