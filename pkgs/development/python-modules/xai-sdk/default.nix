@@ -2,7 +2,6 @@
   lib,
   buildPythonPackage,
   fetchPypi,
-  pythonRelaxDepsHook,
   pythonOlder,
 
   # build-system
@@ -39,8 +38,11 @@ buildPythonPackage rec {
   ];
 
   nativeBuildInputs = [
-    pythonRelaxDepsHook
+    hatchling
+    hatch-fancy-pypi-readme
+    pytestCheckHook
   ];
+
 
   pythonRelaxDeps = [
     "opentelemetry-sdk"
@@ -56,8 +58,6 @@ buildPythonPackage rec {
     packaging
     opentelemetry-sdk
   ];
-
-  doCheck = true; # Tests pass in sandbox
 
   pythonImportsCheck = [ "xai_sdk" ];
 
