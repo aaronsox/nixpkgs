@@ -2,10 +2,9 @@
 , buildPythonPackage
 , fetchPypi
 , pythonOlder
-# build-system
+, pythonRelaxDepsHook
 , hatchling
 , hatch-fancy-pypi-readme
-# runtime deps
 , grpcio
 , protobuf
 , googleapis-common-protos
@@ -14,8 +13,6 @@
 , aiohttp
 , packaging
 , opentelemetry-sdk
-# checks
-, pytestCheckHook
 }:
 
 buildPythonPackage rec {
@@ -31,10 +28,12 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [
+    pythonRelaxDepsHook
     hatchling
     hatch-fancy-pypi-readme
-    pytestCheckHook
   ];
+
+  pythonRelaxDeps = [ "opentelemetry-sdk" ];
 
   propagatedBuildInputs = [
     grpcio
@@ -46,6 +45,8 @@ buildPythonPackage rec {
     packaging
     opentelemetry-sdk
   ];
+
+  dontUsePytestCheck = true;
 
   pythonImportsCheck = [ "xai_sdk" ];
 
