@@ -1,18 +1,19 @@
-{ lib
-, buildPythonPackage
-, fetchPypi
-, pythonOlder
-, pythonRelaxDepsHook
-, hatchling
-, hatch-fancy-pypi-readme
-, grpcio
-, protobuf
-, googleapis-common-protos
-, pydantic
-, requests
-, aiohttp
-, packaging
-, opentelemetry-sdk
+{
+  lib,
+  buildPythonPackage,
+  fetchPypi,
+  pythonOlder,
+  pythonRelaxDepsHook,
+  hatchling,
+  hatch-fancy-pypi-readme,
+  grpcio,
+  protobuf,
+  googleapis-common-protos,
+  pydantic,
+  requests,
+  aiohttp,
+  packaging,
+  opentelemetry-sdk,
 }:
 
 buildPythonPackage rec {
